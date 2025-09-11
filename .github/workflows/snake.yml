@@ -1,22 +1,36 @@
-name: Generate snake
+name: Generate Snake Animation
+
 on:
   schedule:
-    - cron: "0 0 * * *"   # генерить раз в день (UTC)
-  workflow_dispatch:       # возможность запустить вручную
+    - cron: "0 0 * * *"   # Каждый день в полночь
+  workflow_dispatch:       # Ручной запуск
+
 permissions:
   contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: Platane/snk@v3
+      - name: Checkout output branch
+        uses: actions/checkout@v4
+        with:
+          ref: output
+          
+      - name: Generate snake for both themes
+        uses: Platane/snk@v3
         with:
           github_user_name: maerdlina
           outputs: |
-            dist/github-contribution-grid-snake.svg?palette=github-dark
-      - uses: crazy-max/ghaction-github-pages@v4
-        with:
-          target_branch: output
-          build_dir: dist
+            github-contribution-grid-snake.svg          # для светлой темы
+            github-contribution-grid-snake-dark.svg?palette=github-dark  # для тёмной темы
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Commit and push snake files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "🔄 Update snake animations for both themes - $(date +'%Y-%m-%d')"
+          git push origin output
