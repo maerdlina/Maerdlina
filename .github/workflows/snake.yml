@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: gh-pages  # Работаем с веткой gh-pages
+          ref: main  # Работаем с веткой gh-pages
 
       - name: Generate GitHub Contribution Grid Snake
         uses: Platane/snk@v3
