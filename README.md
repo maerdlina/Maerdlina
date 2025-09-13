@@ -8,15 +8,6 @@
   </a>
 </p>
 
-<!-- Анимированная змейка -->
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://maerdlina.github.io/MaerdlinaPortfolio/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://maerdlina.github.io/MaerdlinaPortfolio/github-contribution-grid-snake.svg">
-    <img alt="GitHub Contribution Grid Snake" src="https://maerdlina.github.io/MaerdlinaPortfolio/github-contribution-grid-snake.svg" width="100%">
-  </picture>
-</p>
-
 <!-- Статистика -->
 <p align="center">
   <img height="160" src="https://streak-stats.demolab.com?user=maerdlina&theme=radical&hide_border=true&ring=FF6B6B&fire=FF6B6B&currStreakNum=FFFFFF&sideLabels=C9D1D9&dates=8B949E" />
